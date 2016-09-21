@@ -1,0 +1,5 @@
+framework:
+    secret: etwetr545gfwetdsfvqefg54g242dsaa4g
+    test: ~
+sensio_buzz:
+    client_timeout: 5

@@ -1,0 +1,446 @@
+parameters:
+    app_bundle.packageName: SpotifyPublickAPI
+    app_bundle.metadata:
+        package: "%app_bundle.packageName%"
+        tagline: Spotify Publick API Wrapper
+        description: This package offers a variety of blocks by Spotify that do not require any authentication.
+        image: https://developer.spotify.com/wp-content/uploads/2016/07/logo@2x.png
+        repo: https://github.com/RapidSoftwareSolutions/Marketplace-SpotifyPublicAPI-Package
+        accounts:
+          domain: spotify.com
+          credentials:
+            -
+        blocks:
+        -
+          name: searchAlbums
+          args:
+            -
+              name: query
+              type: String
+              info: "The search query's keywords (and optional field filters and operators)."
+            -
+              name: market
+              type: String
+              info: "Optimal: An ISO 3166-1 alpha-2 country code or the string from_token."
+            -
+              name: limit
+              type: String
+              info: "Optimal: The maximum number of results to return. Default: 20. Minimum: 1. Maximum: 50."
+            -
+              name: offset
+              type: String
+              info: "Optimal: The index of the first result to return. Default: 0 (i.e., the first result). Maximum offset: 100.000. Use with limit to get the next page of search results. "
+          callbacks:
+            -
+              name: error
+              info: "error"
+            -
+              name: success
+              info: "success"
+        -
+          name: searchArtists
+          args:
+          args:
+            -
+              name: query
+              type: String
+              info: "The search query's keywords (and optional field filters and operators)."
+            -
+              name: market
+              type: String
+              info: "Optimal: An ISO 3166-1 alpha-2 country code or the string from_token."
+            -
+              name: limit
+              type: String
+              info: "Optimal: The maximum number of results to return. Default: 20. Minimum: 1. Maximum: 50."
+            -
+              name: offset
+              type: String
+              info: "Optimal: The index of the first result to return. Default: 0 (i.e., the first result). Maximum offset: 100.000. Use with limit to get the next page of search results. "
+          callbacks:
+            -
+              name: error
+              info: "error"
+            -
+              name: success
+              info: "success"
+        -
+          name: searchPlaylists
+          args:
+            -
+              name: query
+              type: String
+              info: "The search query's keywords (and optional field filters and operators)."
+            -
+              name: market
+              type: String
+              info: "Optimal: An ISO 3166-1 alpha-2 country code or the string from_token."
+            -
+              name: limit
+              type: String
+              info: "Optimal: The maximum number of results to return. Default: 20. Minimum: 1. Maximum: 50."
+            -
+              name: offset
+              type: String
+              info: "Optimal: The index of the first result to return. Default: 0 (i.e., the first result). Maximum offset: 100.000. Use with limit to get the next page of search results. "
+          callbacks:
+            -
+              name: error
+              info: "error"
+            -
+              name: success
+              info: "success"
+        -
+          name: searchTracks
+          args:
+            -
+              name: query
+              type: String
+              info: "The search query's keywords (and optional field filters and operators)."
+            -
+              name: market
+              type: String
+              info: "Optimal: An ISO 3166-1 alpha-2 country code or the string from_token."
+            -
+              name: limit
+              type: String
+              info: "Optimal: The maximum number of results to return. Default: 20. Minimum: 1. Maximum: 50."
+            -
+              name: offset
+              type: String
+              info: "Optimal: The index of the first result to return. Default: 0 (i.e., the first result). Maximum offset: 100.000. Use with limit to get the next page of search results. "
+          callbacks:
+            -
+              name: error
+              info: "error"
+            -
+              name: success
+              info: "success"
+        -
+          name: getAlbum
+          args:
+            -
+              name: id
+              type: String
+              info: "The Spotify ID for the album."
+          callbacks:
+            -
+              name: error
+              info: "error"
+            -
+              name: success
+              info: "success"
+        -
+          name: getAlbumTracks
+          args:
+            -
+              name: id
+              type: String
+              info: "The Spotify ID for the track."
+          callbacks:
+            -
+              name: error
+              info: "error"
+            -
+              name: success
+              info: "success"
+        -
+          name: getArtist
+          args:
+            -
+              name: id
+              type: String
+              info: "The Spotify ID for the artist."
+          callbacks:
+            -
+              name: error
+              info: "error"
+            -
+              name: success
+              info: "success"
+        -
+          name: getArtistAlbums
+          args:
+            -
+              name: id
+              type: String
+              info: "The Spotify ID for the artist."
+            -
+              name: album_type
+              type: String
+              info: "Optional. A comma-separated list of keywords that will be used to filter the response. If not supplied, all album types will be returned. Valid values are:album, single, appears_on, compilation."
+            -
+              name: market
+              type: String
+              info: "Optional. An ISO 3166-1 alpha-2 country code. Supply this parameter to limit the response to one particular geographical market."
+            -
+              name: limit
+              type: String
+              info: "Optional. The number of album objects to return. Default: 20. Minimum: 1. Maximum: 50."
+            -
+              name: offset
+              type: String
+              info: "Optional. The index of the first album to return. Default: 0 (i.e., the first album). Use with limit to get the next set of albums. "
+          callbacks:
+            -
+              name: error
+              info: "error"
+            -
+              name: success
+              info: "success"
+        -
+          name: getArtistTopTracks
+          args:
+            -
+              name: id
+              type: String
+              info: "The Spotify ID for the artist."
+          callbacks:
+            -
+              name: error
+              info: "error"
+            -
+              name: success
+              info: "success"
+        -
+          name: getArtistRelatedArtists
+          args:
+            -
+              name: id
+              type: String
+              info: "The Spotify ID for the artist."
+          callbacks:
+            -
+              name: error
+              info: "error"
+            -
+              name: success
+              info: "success"
+        -
+          name: getTrack
+          args:
+            -
+              name: id
+              type: String
+              info: "The Spotify ID for the track."
+          callbacks:
+            -
+              name: error
+              info: "error"
+            -
+              name: success
+              info: "success"
+        -
+          name: getUserProfile
+          args:
+            -
+              name: id
+              type: String
+              info: "The Spotify ID for the user profile."
+          callbacks:
+            -
+              name: error
+              info: "error"
+            -
+              name: success
+              info: "success"
+
+    app_bundle.spotifyUrl: "https://api.spotify.com/v1/"
+    app_bundle.access_token: "access_token"
+    app_bundle.default_profile: "me"
+    app_bundle.search_albums:
+      url: "%app_bundle.spotifyUrl%"
+      uri: "search?type=album&"
+      method: "get"
+      args_in_body: false
+      object:
+        optimal: false
+        default: ""
+        error: "Missing required parameters"
+      callback_message:
+        error: "error"
+        success: "success"
+      args:
+        q: "query"
+        market: "market"
+        limit: "limit"
+        offset: "offset"
+    app_bundle.search_artists:
+      url: "%app_bundle.spotifyUrl%"
+      uri: "search?type=artist"
+      method: "get"
+      args_in_body: false
+      object:
+        optimal: false
+        default: ""
+        error: "Missing required parameters"
+      callback_message:
+        error: "error"
+        success: "success"
+      args:
+        query: "query"
+        market: "market"
+        limit: "limit"
+        offset: "offset"
+    app_bundle.search_playlists:
+      url: "%app_bundle.spotifyUrl%"
+      uri: "search?type=playlist"
+      method: "get"
+      args_in_body: false
+      object:
+        optimal: false
+        default: ""
+        error: "Missing required parameters"
+      callback_message:
+        error: "error"
+        success: "success"
+      args:
+        query: "query"
+        market: "market"
+        limit: "limit"
+        offset: "offset"
+    app_bundle.search_tracks:
+      url: "%app_bundle.spotifyUrl%"
+      uri: "search?type=track"
+      method: "get"
+      args_in_body: false
+      object:
+        optimal: false
+        default: ""
+        error: "Missing required parameters"
+      callback_message:
+        error: "error"
+        success: "success"
+      args:
+        query: "query"
+        market: "market"
+        limit: "limit"
+        offset: "offset"
+    app_bundle.get_album:
+      url: "%app_bundle.spotifyUrl%"
+      uri: "/albums/"
+      method: "get"
+      args_in_body: false
+      object:
+        optimal: "user_id"
+        default: false
+        error: "Missing required parameters"
+      callback_message:
+        error: "error"
+        success: "success"
+      args:
+        id: "id"
+    app_bundle.get_album_tracks:
+      url: "%app_bundle.spotifyUrl%"
+      uri: "/albums/"
+      method: "get"
+      args_in_body: false
+      object:
+        optimal: "user_id"
+        default: false
+        error: "Missing required parameters"
+      callback_message:
+        error: "error"
+        success: "success"
+      args:
+        id: "id"
+    app_bundle.get_artist:
+      url: "%app_bundle.spotifyUrl%"
+      uri: "/artists/"
+      method: "get"
+      args_in_body: false
+      object:
+        optimal: "user_id"
+        default: false
+        error: "Missing required parameters"
+      callback_message:
+        error: "error"
+        success: "success"
+      args:
+        id: "id"
+    app_bundle.get_artist_albums:
+      url: "%app_bundle.spotifyUrl%"
+      uri: "/artists/"
+      method: "get"
+      args_in_body: false
+      object:
+        optimal: "user_id"
+        default: false
+        error: "Missing required parameters"
+      callback_message:
+        error: "error"
+        success: "success"
+      args:
+        id: "id"
+        album_type: "album_type"
+        market: "market"
+        limit: "limit"
+        offset: "offset"
+    app_bundle.get_artist_top_tracks:
+      url: "%app_bundle.spotifyUrl%"
+      uri: "/artists/"
+      method: "get"
+      args_in_body: false
+      object:
+        optimal: "user_id"
+        default: false
+        error: "Missing required parameters"
+      callback_message:
+        error: "error"
+        success: "success"
+      args:
+        id: "id"
+    app_bundle.get_artist_related_artists:
+      url: "%app_bundle.spotifyUrl%"
+      uri: "/artists/"
+      method: "get"
+      args_in_body: false
+      object:
+        optimal: "user_id"
+        default: false
+        error: "Missing required parameters"
+      callback_message:
+        error: "error"
+        success: "success"
+      args:
+        id: "id"
+    app_bundle.get_track:
+      url: "%app_bundle.spotifyUrl%"
+      uri: "/tracks/"
+      method: "get"
+      args_in_body: false
+      object:
+        optimal: "user_id"
+        default: false
+        error: "Missing required parameters"
+      callback_message:
+        error: "error"
+        success: "success"
+      args:
+        id: "id"
+    app_bundle.get_user_profile:
+      url: "%app_bundle.spotifyUrl%"
+      uri: "/users/"
+      method: "get"
+      args_in_body: false
+      object:
+        optimal: "user_id"
+        default: false
+        error: "Missing required parameters"
+      callback_message:
+        error: "error"
+        success: "success"
+      args:
+        id: "id"
+
+services:
+    app_bundle.package_abstract:
+        class: SpotifyPublickAPIBundle\Utils\SpotifyAbstract
+        abstract: true
+        arguments: ["@request_stack", "@buzz"]
+    app_bundle.search_functions:
+        class: SpotifyPublickAPIBundle\Utils\SearchFunctions
+        parent: app_bundle.package_abstract
+    app_bundle.get_functions:
+        class: SpotifyPublickAPIBundle\Utils\GetFunctions
+        parent: app_bundle.package_abstract
