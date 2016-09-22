@@ -96,22 +96,7 @@ abstract class SpotifyAbstract
 
                 $next = $this->finder->recursiveFindValueInMultiArray($pagination, $schema['pagination_next_url_key']);
 
-                if (isset($pagination['error'])) {
-
-                    $this->result['error'] = $pagination['error'];
-
-                } else {
-
-                    $items = $this->finder->recursiveFindValueInMultiArray($pagination, $schema['content_field_name']);
-
-                    if (count($items) > 0) {
-
-                        $this->result = array_merge($this->result, $items);
-
-                    } else {
-                        break;
-                    }
-                }
+                $this->result = array_merge_recursive($this->result, $pagination);
             }
         }
     }
@@ -129,12 +114,13 @@ abstract class SpotifyAbstract
         );
 
         if ($schema['args_in_body']) {
-
             $response = $this->httpClient->{$schema['method']}($query['url'], $headers, $query['args']);
         } else {
             if (isset($query['args'])) {
+
                 $response = $this->httpClient->{$schema['method']}($query['url'] . http_build_query($query['args'], '', '&'), $headers);
             } else {
+
                 $response = $this->httpClient->{$schema['method']}($query['url'], $headers);
             }
         }

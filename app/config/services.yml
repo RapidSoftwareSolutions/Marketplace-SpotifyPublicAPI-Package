@@ -256,7 +256,6 @@ parameters:
       uri: "search?type=album&"
       method: "get"
       args_in_body: false
-      content_field_name: "items"
       limit_field_stop_pagination: true
       pagination_next_url_key: "next"
       object: false
@@ -273,7 +272,6 @@ parameters:
       uri: "search?type=artist&"
       method: "get"
       args_in_body: false
-      content_field_name: "items"
       limit_field_stop_pagination: true
       pagination_next_url_key: "next"
       object: false
@@ -290,7 +288,6 @@ parameters:
       uri: "search?type=playlist&"
       method: "get"
       args_in_body: false
-      content_field_name: "items"
       limit_field_stop_pagination: true
       pagination_next_url_key: "next"
       object: false
@@ -307,7 +304,6 @@ parameters:
       uri: "search?type=track&"
       method: "get"
       args_in_body: false
-      content_field_name: "items"
       limit_field_stop_pagination: true
       pagination_next_url_key: "next"
       object: false
@@ -324,8 +320,7 @@ parameters:
       uri: "albums/{id}"
       method: "get"
       args_in_body: false
-      content_field_name: "items"
-      limit_field_stop_pagination: true
+      limit_field_stop_pagination: false
       pagination_next_url_key: "next"
       object:
         "{id}": "id"
@@ -338,8 +333,7 @@ parameters:
       uri: "albums/{id}/tracks"
       method: "get"
       args_in_body: false
-      content_field_name: "items"
-      limit_field_stop_pagination: true
+      limit_field_stop_pagination: false
       pagination_next_url_key: "next"
       object:
         "{id}": "id"
@@ -352,8 +346,7 @@ parameters:
       uri: "artists/{id}"
       method: "get"
       args_in_body: false
-      content_field_name: "items"
-      limit_field_stop_pagination: true
+      limit_field_stop_pagination: false
       pagination_next_url_key: "next"
       object:
         "{id}": "id"
@@ -366,7 +359,6 @@ parameters:
       uri: "artists/{id}/albums?"
       method: "get"
       args_in_body: false
-      content_field_name: "items"
       limit_field_stop_pagination: true
       pagination_next_url_key: "next"
       object:
@@ -384,8 +376,7 @@ parameters:
       uri: "artists/{id}/top-tracks?"
       method: "get"
       args_in_body: false
-      content_field_name: "items"
-      limit_field_stop_pagination: true
+      limit_field_stop_pagination: false
       pagination_next_url_key: "next"
       object:
         "{id}": "id"
@@ -399,8 +390,7 @@ parameters:
       uri: "artists/{id}/related-artists"
       method: "get"
       args_in_body: false
-      content_field_name: "items"
-      limit_field_stop_pagination: true
+      limit_field_stop_pagination: false
       pagination_next_url_key: "next"
       object:
         "{id}": "id"
@@ -413,8 +403,7 @@ parameters:
       uri: "tracks/{id}"
       method: "get"
       args_in_body: false
-      content_field_name: "items"
-      limit_field_stop_pagination: true
+      limit_field_stop_pagination: false
       pagination_next_url_key: "next"
       object:
         "{id}": "id"
@@ -427,8 +416,7 @@ parameters:
       uri: "users/{id}"
       method: "get"
       args_in_body: false
-      content_field_name: "items"
-      limit_field_stop_pagination: true
+      limit_field_stop_pagination: false
       pagination_next_url_key: "next"
       object:
         "{id}": "id"
