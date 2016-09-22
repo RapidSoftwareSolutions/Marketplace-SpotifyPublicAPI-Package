@@ -1,6 +1,6 @@
 <?php
 
-namespace SpotifyPublickAPIBundle\Controller;
+namespace SpotifyPublicAPIBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -14,7 +14,7 @@ class PackageController extends Controller
 {
     /**
      *
-     * @Route("/api/{packageName}", requirements={"packageName": "SpotifyPublickAPI"})
+     * @Route("/api/{packageName}", requirements={"packageName": "SpotifyPublicAPI"})
      * @Method({"GET"})
      *
      * @return JsonResponse
@@ -25,7 +25,7 @@ class PackageController extends Controller
     }
 
     /**
-     * @Route("/api/{packageName}/searchAlbums", requirements={"packageName": "SpotifyPublickAPI"})
+     * @Route("/api/{packageName}/searchAlbums", requirements={"packageName": "SpotifyPublicAPI"})
      * @Method({"POST"})
      *
      * @return mixed
@@ -36,13 +36,13 @@ class PackageController extends Controller
 
         $callback = $graph->getCallback('searchAlbums');
 
-        $callback($this->getParameter('app_bundle.searchAlbums'));
+        $callback($this->getParameter('app_bundle.search_albums'));
 
         return new JsonResponse($graph->getResponse());
     }
 
     /**
-     * @Route("/api/{packageName}/searchArtists", requirements={"packageName": "SpotifyPublickAPI"})
+     * @Route("/api/{packageName}/searchArtists", requirements={"packageName": "SpotifyPublicAPI"})
      * @Method({"POST"})
      *
      * @return mixed
@@ -59,7 +59,7 @@ class PackageController extends Controller
     }
 
     /**
-     * @Route("/api/{packageName}/searchPlaylists", requirements={"packageName": "SpotifyPublickAPI"})
+     * @Route("/api/{packageName}/searchPlaylists", requirements={"packageName": "SpotifyPublicAPI"})
      * @Method({"POST"})
      *
      * @return mixed
@@ -76,7 +76,7 @@ class PackageController extends Controller
     }
 
     /**
-     * @Route("/api/{packageName}/searchTracks", requirements={"packageName": "SpotifyPublickAPI"})
+     * @Route("/api/{packageName}/searchTracks", requirements={"packageName": "SpotifyPublicAPI"})
      * @Method({"POST"})
      *
      * @return mixed
@@ -93,7 +93,7 @@ class PackageController extends Controller
     }
 
     /**
-     * @Route("/api/{packageName}/getAlbum", requirements={"packageName": "SpotifyPublickAPI"})
+     * @Route("/api/{packageName}/getAlbum", requirements={"packageName": "SpotifyPublicAPI"})
      * @Method({"POST"})
      *
      * @return mixed
@@ -110,7 +110,7 @@ class PackageController extends Controller
     }
 
     /**
-     * @Route("/api/{packageName}/getAlbumTracks", requirements={"packageName": "SpotifyPublickAPI"})
+     * @Route("/api/{packageName}/getAlbumTracks", requirements={"packageName": "SpotifyPublicAPI"})
      * @Method({"POST"})
      *
      * @return mixed
@@ -127,7 +127,7 @@ class PackageController extends Controller
     }
 
     /**
-     * @Route("/api/{packageName}/getArtist", requirements={"packageName": "SpotifyPublickAPI"})
+     * @Route("/api/{packageName}/getArtist", requirements={"packageName": "SpotifyPublicAPI"})
      * @Method({"POST"})
      *
      * @return mixed
@@ -144,7 +144,7 @@ class PackageController extends Controller
     }
 
     /**
-     * @Route("/api/{packageName}/getArtistAlbums", requirements={"packageName": "SpotifyPublickAPI"})
+     * @Route("/api/{packageName}/getArtistAlbums", requirements={"packageName": "SpotifyPublicAPI"})
      * @Method({"POST"})
      *
      * @return mixed
@@ -161,7 +161,7 @@ class PackageController extends Controller
     }
 
     /**
-     * @Route("/api/{packageName}/getArtistTopTracks", requirements={"packageName": "SpotifyPublickAPI"})
+     * @Route("/api/{packageName}/getArtistTopTracks", requirements={"packageName": "SpotifyPublicAPI"})
      * @Method({"POST"})
      *
      * @return mixed
@@ -178,7 +178,7 @@ class PackageController extends Controller
     }
 
     /**
-     * @Route("/api/{packageName}/getArtistRelatedArtists", requirements={"packageName": "SpotifyPublickAPI"})
+     * @Route("/api/{packageName}/getArtistRelatedArtists", requirements={"packageName": "SpotifyPublicAPI"})
      * @Method({"POST"})
      *
      * @return mixed
@@ -195,7 +195,7 @@ class PackageController extends Controller
     }
 
     /**
-     * @Route("/api/{packageName}/getTrack", requirements={"packageName": "SpotifyPublickAPI"})
+     * @Route("/api/{packageName}/getTrack", requirements={"packageName": "SpotifyPublicAPI"})
      * @Method({"POST"})
      *
      * @return mixed
@@ -212,7 +212,7 @@ class PackageController extends Controller
     }
 
     /**
-     * @Route("/api/{packageName}/getUserProfile", requirements={"packageName": "SpotifyPublickAPI"})
+     * @Route("/api/{packageName}/getUserProfile", requirements={"packageName": "SpotifyPublicAPI"})
      * @Method({"POST"})
      *
      * @return mixed

@@ -1,7 +1,7 @@
-# SpotifyPublickAPI Package
+# SpotifyPublicAPI Package
 This package offers a variety of blocks by Spotify that do not require any authentication.
 * Domain: spotify.com
-* Credentials: 
+* Credentials: public
 
 ## How to get credentials: 
 0. Item one 
@@ -22,7 +22,7 @@ This package offers a variety of blocks by Spotify that do not require any authe
 * [getUserProfile](#getUserProfile)
  
 <a name="searchAlbums"/>
-## SpotifyPublickAPI.searchAlbums
+## SpotifyPublicAPI.searchAlbums
 Method description
 
 | Field | Type  | Description
@@ -53,7 +53,7 @@ Method description
 ```
 
 <a name="searchArtists"/>
-## SpotifyPublickAPI.searchArtists
+## SpotifyPublicAPI.searchArtists
 Method description
 
 | Field | Type  | Description
@@ -84,7 +84,7 @@ Method description
 ```
 
 <a name="searchPlaylists"/>
-## SpotifyPublickAPI.searchPlaylists
+## SpotifyPublicAPI.searchPlaylists
 Method description
 
 | Field | Type  | Description
@@ -115,7 +115,7 @@ Method description
 ```
 
 <a name="searchTracks"/>
-## SpotifyPublickAPI.searchTracks
+## SpotifyPublicAPI.searchTracks
 Method description
 
 | Field | Type  | Description
@@ -146,7 +146,7 @@ Method description
 ```
 
 <a name="getAlbum"/>
-## SpotifyPublickAPI.getAlbum
+## SpotifyPublicAPI.getAlbum
 Method description
 
 | Field    | Type  | Description
@@ -171,7 +171,7 @@ Method description
 ```
 
 <a name="getAlbumTracks"/>
-## SpotifyPublickAPI.getAlbumTracks
+## SpotifyPublicAPI.getAlbumTracks
 Method description
 
 | Field    | Type  | Description
@@ -196,7 +196,7 @@ Method description
 ```
 
 <a name="getArtist"/>
-## SpotifyPublickAPI.getArtist
+## SpotifyPublicAPI.getArtist
 Method description
 
 | Field    | Type  | Description
@@ -221,7 +221,7 @@ Method description
 ```
 
 <a name="getArtistAlbums"/>
-## SpotifyPublickAPI.getArtistAlbums
+## SpotifyPublicAPI.getArtistAlbums
 Method description
 
 | Field     | Type  | Description
@@ -254,16 +254,18 @@ Method description
 ```
 
 <a name="getArtistTopTracks"/>
-## SpotifyPublickAPI.getArtistTopTracks
+## SpotifyPublicAPI.getArtistTopTracks
 Method description
 
-| Field    | Type  | Description
-|---|-------|----------
-| id| String| The Spotify ID for the artist.
+| Field  | Type  | Description
+|--------|-------|----------
+| id     | String| The Spotify ID for the artist.
+| country| String| The country: an ISO 3166-1 alpha-2 country code.
 
 #### Request example
 ```json
-{	"id": "..."
+{	"id": "...",
+	"country": "..."
 }
 ```
 #### Response example
@@ -279,7 +281,7 @@ Method description
 ```
 
 <a name="getArtistRelatedArtists"/>
-## SpotifyPublickAPI.getArtistRelatedArtists
+## SpotifyPublicAPI.getArtistRelatedArtists
 Method description
 
 | Field    | Type  | Description
@@ -304,7 +306,7 @@ Method description
 ```
 
 <a name="getTrack"/>
-## SpotifyPublickAPI.getTrack
+## SpotifyPublicAPI.getTrack
 Method description
 
 | Field    | Type  | Description
@@ -329,7 +331,7 @@ Method description
 ```
 
 <a name="getUserProfile"/>
-## SpotifyPublickAPI.getUserProfile
+## SpotifyPublicAPI.getUserProfile
 Method description
 
 | Field    | Type  | Description

@@ -1,15 +1,15 @@
 parameters:
-    app_bundle.packageName: SpotifyPublickAPI
+    app_bundle.packageName: SpotifyPublicAPI
     app_bundle.metadata:
         package: "%app_bundle.packageName%"
-        tagline: Spotify Publick API Wrapper
+        tagline: Spotify Public API Wrapper
         description: This package offers a variety of blocks by Spotify that do not require any authentication.
-        image: https://developer.spotify.com/wp-content/uploads/2016/07/logo@2x.png
+        image: https://developer.spotify.com/wp-content/uploads/2016/07/icon1@2x.png
         repo: https://github.com/RapidSoftwareSolutions/Marketplace-SpotifyPublicAPI-Package
         accounts:
           domain: spotify.com
           credentials:
-            -
+            - public
         blocks:
         -
           name: searchAlbums
@@ -195,6 +195,10 @@ parameters:
               name: id
               type: String
               info: "The Spotify ID for the artist."
+            -
+              name: country
+              type: String
+              info: "The country: an ISO 3166-1 alpha-2 country code."
           callbacks:
             -
               name: error
@@ -246,17 +250,16 @@ parameters:
               info: "success"
 
     app_bundle.spotifyUrl: "https://api.spotify.com/v1/"
-    app_bundle.access_token: "access_token"
-    app_bundle.default_profile: "me"
+    app_bundle.default_profile: "/"
     app_bundle.search_albums:
       url: "%app_bundle.spotifyUrl%"
       uri: "search?type=album&"
       method: "get"
       args_in_body: false
-      object:
-        optimal: false
-        default: ""
-        error: "Missing required parameters"
+      content_field_name: "items"
+      limit_field_stop_pagination: true
+      pagination_next_url_key: "next"
+      object: false
       callback_message:
         error: "error"
         success: "success"
@@ -267,180 +270,185 @@ parameters:
         offset: "offset"
     app_bundle.search_artists:
       url: "%app_bundle.spotifyUrl%"
-      uri: "search?type=artist"
+      uri: "search?type=artist&"
       method: "get"
       args_in_body: false
-      object:
-        optimal: false
-        default: ""
-        error: "Missing required parameters"
+      content_field_name: "items"
+      limit_field_stop_pagination: true
+      pagination_next_url_key: "next"
+      object: false
       callback_message:
         error: "error"
         success: "success"
       args:
-        query: "query"
+        q: "query"
         market: "market"
         limit: "limit"
         offset: "offset"
     app_bundle.search_playlists:
       url: "%app_bundle.spotifyUrl%"
-      uri: "search?type=playlist"
+      uri: "search?type=playlist&"
       method: "get"
       args_in_body: false
-      object:
-        optimal: false
-        default: ""
-        error: "Missing required parameters"
+      content_field_name: "items"
+      limit_field_stop_pagination: true
+      pagination_next_url_key: "next"
+      object: false
       callback_message:
         error: "error"
         success: "success"
       args:
-        query: "query"
+        q: "query"
         market: "market"
         limit: "limit"
         offset: "offset"
     app_bundle.search_tracks:
       url: "%app_bundle.spotifyUrl%"
-      uri: "search?type=track"
+      uri: "search?type=track&"
       method: "get"
       args_in_body: false
-      object:
-        optimal: false
-        default: ""
-        error: "Missing required parameters"
+      content_field_name: "items"
+      limit_field_stop_pagination: true
+      pagination_next_url_key: "next"
+      object: false
       callback_message:
         error: "error"
         success: "success"
       args:
-        query: "query"
+        q: "query"
         market: "market"
         limit: "limit"
         offset: "offset"
     app_bundle.get_album:
       url: "%app_bundle.spotifyUrl%"
-      uri: "/albums/"
+      uri: "albums/{id}"
       method: "get"
       args_in_body: false
+      content_field_name: "items"
+      limit_field_stop_pagination: true
+      pagination_next_url_key: "next"
       object:
-        optimal: "user_id"
-        default: false
-        error: "Missing required parameters"
+        "{id}": "id"
       callback_message:
         error: "error"
         success: "success"
-      args:
-        id: "id"
+      args: false
     app_bundle.get_album_tracks:
       url: "%app_bundle.spotifyUrl%"
-      uri: "/albums/"
+      uri: "albums/{id}/tracks"
       method: "get"
       args_in_body: false
+      content_field_name: "items"
+      limit_field_stop_pagination: true
+      pagination_next_url_key: "next"
       object:
-        optimal: "user_id"
-        default: false
-        error: "Missing required parameters"
+        "{id}": "id"
       callback_message:
         error: "error"
         success: "success"
-      args:
-        id: "id"
+      args: false
     app_bundle.get_artist:
       url: "%app_bundle.spotifyUrl%"
-      uri: "/artists/"
+      uri: "artists/{id}"
       method: "get"
       args_in_body: false
+      content_field_name: "items"
+      limit_field_stop_pagination: true
+      pagination_next_url_key: "next"
       object:
-        optimal: "user_id"
-        default: false
-        error: "Missing required parameters"
+        "{id}": "id"
       callback_message:
         error: "error"
         success: "success"
-      args:
-        id: "id"
+      args: false
     app_bundle.get_artist_albums:
       url: "%app_bundle.spotifyUrl%"
-      uri: "/artists/"
+      uri: "artists/{id}/albums?"
       method: "get"
       args_in_body: false
+      content_field_name: "items"
+      limit_field_stop_pagination: true
+      pagination_next_url_key: "next"
       object:
-        optimal: "user_id"
-        default: false
-        error: "Missing required parameters"
+        "{id}": "id"
       callback_message:
         error: "error"
         success: "success"
       args:
-        id: "id"
         album_type: "album_type"
         market: "market"
         limit: "limit"
         offset: "offset"
     app_bundle.get_artist_top_tracks:
       url: "%app_bundle.spotifyUrl%"
-      uri: "/artists/"
+      uri: "artists/{id}/top-tracks?"
       method: "get"
       args_in_body: false
+      content_field_name: "items"
+      limit_field_stop_pagination: true
+      pagination_next_url_key: "next"
       object:
-        optimal: "user_id"
-        default: false
-        error: "Missing required parameters"
+        "{id}": "id"
       callback_message:
         error: "error"
         success: "success"
       args:
-        id: "id"
+        country: "country"
     app_bundle.get_artist_related_artists:
       url: "%app_bundle.spotifyUrl%"
-      uri: "/artists/"
+      uri: "artists/{id}/related-artists"
       method: "get"
       args_in_body: false
+      content_field_name: "items"
+      limit_field_stop_pagination: true
+      pagination_next_url_key: "next"
       object:
-        optimal: "user_id"
-        default: false
-        error: "Missing required parameters"
+        "{id}": "id"
       callback_message:
         error: "error"
         success: "success"
-      args:
-        id: "id"
+      args: false
     app_bundle.get_track:
       url: "%app_bundle.spotifyUrl%"
-      uri: "/tracks/"
+      uri: "tracks/{id}"
       method: "get"
       args_in_body: false
+      content_field_name: "items"
+      limit_field_stop_pagination: true
+      pagination_next_url_key: "next"
       object:
-        optimal: "user_id"
-        default: false
-        error: "Missing required parameters"
+        "{id}": "id"
       callback_message:
         error: "error"
         success: "success"
-      args:
-        id: "id"
+      args: false
     app_bundle.get_user_profile:
       url: "%app_bundle.spotifyUrl%"
-      uri: "/users/"
+      uri: "users/{id}"
       method: "get"
       args_in_body: false
+      content_field_name: "items"
+      limit_field_stop_pagination: true
+      pagination_next_url_key: "next"
       object:
-        optimal: "user_id"
-        default: false
-        error: "Missing required parameters"
+        "{id}": "id"
       callback_message:
         error: "error"
         success: "success"
-      args:
-        id: "id"
+      args: false
 
 services:
     app_bundle.package_abstract:
-        class: SpotifyPublickAPIBundle\Utils\SpotifyAbstract
+        class: SpotifyPublicAPIBundle\Utils\ApiFunctions\Abstracts\SpotifyAbstract
         abstract: true
-        arguments: ["@request_stack", "@buzz"]
+        arguments: ["@request_stack", "@buzz", "@app_bundle.query_builder", "@app_bundle.finder"]
     app_bundle.search_functions:
-        class: SpotifyPublickAPIBundle\Utils\SearchFunctions
+        class: SpotifyPublicAPIBundle\Utils\ApiFunctions\SearchFunctions
         parent: app_bundle.package_abstract
     app_bundle.get_functions:
-        class: SpotifyPublickAPIBundle\Utils\GetFunctions
+        class: SpotifyPublicAPIBundle\Utils\ApiFunctions\GetFunctions
         parent: app_bundle.package_abstract
+    app_bundle.finder:
+        class: SpotifyPublicAPIBundle\Utils\ExtraFunctions\Finder
+    app_bundle.query_builder:
+        class: SpotifyPublicAPIBundle\Utils\ExtraFunctions\QueryBuilder

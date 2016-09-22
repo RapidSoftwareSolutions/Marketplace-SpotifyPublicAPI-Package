@@ -22,7 +22,7 @@ class AppKernel extends Kernel
             new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new Sensio\Bundle\BuzzBundle\SensioBuzzBundle(),
-            new SpotifyPublickAPIBundle\SpotifyPublickAPIBundle()
+            new SpotifyPublicAPIBundle\SpotifyPublicAPIBundle()
         );
 
         return $bundles;
@@ -36,6 +36,6 @@ class AppKernel extends Kernel
 
     protected function configureRoutes(RouteCollectionBuilder $routes)
     {
-        $routes->import(__DIR__.'/../src/SpotifyPublickAPIBundle/Controller/', '/', 'annotation');
+        $routes->import(__DIR__.'/../src/SpotifyPublicAPIBundle/Controller/', '/', 'annotation');
     }
 }

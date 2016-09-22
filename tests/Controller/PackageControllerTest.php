@@ -11,11 +11,14 @@ class PackageControllerTest extends WebTestCase
      * @class createClient
      */
     public $client;
-
     /**
      * @var array
      */
     public $metadata;
+    /**
+     * @var string
+     */
+    public $testContent = '{"args":{"q":"test","id":"test"}}';
 
     public function setUp()
     {
@@ -33,22 +36,23 @@ class PackageControllerTest extends WebTestCase
         {
             $this->client->request(
                 'POST',
-                '/api/SpotifyPublickAPI/' . $blockName['name']
+                '/api/SpotifyPublicAPI/' . $blockName['name'],
+                [],
+                [],
+                [],
+                $this->testContent
             );
 
             $response = $this->client->getResponse();
-            //$data = json_decode($response->getContent(), true);
 
             $this->assertEquals(200 , $response->getStatusCode());
 
-            //$this->assertJson($response->getContent());
-            //$this->assertEquals('success', $data['callback']);
         }
     }
 
     public function testMetadata()
     {
-        $this->client->request('GET', '/api/SpotifyPublickAPI');
+        $this->client->request('GET', '/api/SpotifyPublicAPI');
         $response = $this->client->getResponse();
         $data = json_decode($response->getContent(), true);
 
@@ -60,7 +64,7 @@ class PackageControllerTest extends WebTestCase
         $this->assertArrayHasKey('repo', $data);
         $this->assertArrayHasKey('accounts', $data);
         $this->assertArrayHasKey('blocks', $data);
-        $this->assertEquals('FacebookGraphAPI', $data['package']);
+        $this->assertEquals('SpotifyPublicAPI', $data['package']);
     }
 
 }

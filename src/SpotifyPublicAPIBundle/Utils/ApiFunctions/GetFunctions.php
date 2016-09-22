@@ -3,9 +3,9 @@
  * @author Dmitry Shumytskyi <d.shumytskyi@gmail.com>
  */
 
-namespace SpotifyPublickAPI\Utils;
+namespace SpotifyPublicAPIBundle\Utils\ApiFunctions;
 
-use SpotifyPublickAPIBundle\Utils\Abstracts\SpotifyAbstract;
+use SpotifyPublicAPIBundle\Utils\ApiFunctions\Abstracts\SpotifyAbstract;
 
 class GetFunctions extends SpotifyAbstract
 {
