@@ -22,7 +22,6 @@ class QueryBuilder
         }
 
         return $uri;
-
     }
 
     public function buildArgsParams($schema, $parameters)

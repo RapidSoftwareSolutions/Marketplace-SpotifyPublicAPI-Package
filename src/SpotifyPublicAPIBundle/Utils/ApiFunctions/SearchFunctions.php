@@ -12,8 +12,6 @@ use SpotifyPublicAPIBundle\Utils\ApiFunctions\Abstracts\SpotifyAbstract;
 class SearchFunctions extends SpotifyAbstract
 {
     /**
-     * get an album's details
-     *
      * @param $schema
      */
     public function searchAlbums($schema)
@@ -26,8 +24,6 @@ class SearchFunctions extends SpotifyAbstract
     }
 
     /**
-     * create an album for a user / page
-     *
      * @param $schema
      */
     public function searchArtists($schema)
@@ -40,8 +36,6 @@ class SearchFunctions extends SpotifyAbstract
     }
 
     /**
-     * get photos in an album
-     *
      * @param $schema
      */
     public function searchPlaylists($schema)
@@ -54,8 +48,6 @@ class SearchFunctions extends SpotifyAbstract
     }
 
     /**
-     * add a photo to an album
-     *
      * @param $schema
      */
     public function searchTracks($schema)

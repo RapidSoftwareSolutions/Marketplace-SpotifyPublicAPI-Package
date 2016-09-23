@@ -20,10 +20,6 @@ abstract class SpotifyAbstract
      */
     protected $httpClient;
     /**
-     * @var array
-     */
-    protected $result;
-    /**
      * @var mixed
      */
     protected $queryBuilder;
@@ -31,6 +27,10 @@ abstract class SpotifyAbstract
      * @var mixed
      */
     protected $finder;
+    /**
+     * @var array
+     */
+    protected $result;
 
     /**
      * SpotifyAbstract constructor.
@@ -75,7 +75,13 @@ abstract class SpotifyAbstract
 
         $replacements = array_values($uri);
 
-        return ['url' => $schema['url'] . str_replace($patterns, $replacements, $schema['uri']), 'args' => $query];
+        if ($schema['args_in_body']) {
+
+            return ['url' => $schema['url'] . str_replace($patterns, $replacements, $schema['uri']), 'body' => $query];
+        } else {
+
+            return ['url' => $schema['url'] . str_replace($patterns, $replacements, $schema['uri']) . http_build_query($query, '', '&')];
+        }
     }
 
     /**
@@ -114,15 +120,11 @@ abstract class SpotifyAbstract
         );
 
         if ($schema['args_in_body']) {
-            $response = $this->httpClient->{$schema['method']}($query['url'], $headers, $query['args']);
+
+            $response = $this->httpClient->{$schema['method']}($query['url'], $headers, $query['body']);
         } else {
-            if (isset($query['args'])) {
 
-                $response = $this->httpClient->{$schema['method']}($query['url'] . http_build_query($query['args'], '', '&'), $headers);
-            } else {
-
-                $response = $this->httpClient->{$schema['method']}($query['url'], $headers);
-            }
+            $response = $this->httpClient->{$schema['method']}($query['url'], $headers);
         }
 
         return $response->getContent();

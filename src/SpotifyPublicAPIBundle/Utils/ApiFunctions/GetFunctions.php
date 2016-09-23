@@ -10,8 +10,6 @@ use SpotifyPublicAPIBundle\Utils\ApiFunctions\Abstracts\SpotifyAbstract;
 class GetFunctions extends SpotifyAbstract
 {
     /**
-     * get an album's details
-     *
      * @param $schema
      */
     public function getAlbum($schema)
@@ -24,8 +22,6 @@ class GetFunctions extends SpotifyAbstract
     }
 
     /**
-     * create an album for a user / page
-     *
      * @param $schema
      */
     public function getAlbumTracks($schema)
@@ -38,8 +34,6 @@ class GetFunctions extends SpotifyAbstract
     }
 
     /**
-     * get photos in an album
-     *
      * @param $schema
      */
     public function getArtist($schema)
@@ -52,8 +46,6 @@ class GetFunctions extends SpotifyAbstract
     }
 
     /**
-     * add a photo to an album
-     *
      * @param $schema
      */
     public function getArtistAlbums($schema)
@@ -66,8 +58,6 @@ class GetFunctions extends SpotifyAbstract
     }
 
     /**
-     * add a photo to an album
-     *
      * @param $schema
      */
     public function getArtistTopTracks($schema)
@@ -80,8 +70,6 @@ class GetFunctions extends SpotifyAbstract
     }
 
     /**
-     * add a photo to an album
-     *
      * @param $schema
      */
     public function getArtistRelatedArtists($schema)
@@ -94,8 +82,6 @@ class GetFunctions extends SpotifyAbstract
     }
 
     /**
-     * add a photo to an album
-     *
      * @param $schema
      */
     public function getTrack($schema)
@@ -108,8 +94,6 @@ class GetFunctions extends SpotifyAbstract
     }
 
     /**
-     * add a photo to an album
-     *
      * @param $schema
      */
     public function getUserProfile($schema)
