@@ -40,6 +40,7 @@ RUN echo "http://dl-4.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositor
     && ln -s /usr/sbin/php-fpm7 /usr/bin/php-fpm \
     && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer \
     && mkdir -p /app/cache/prod \
+    && mkdir -p /app/logs \
     && ln -s /root/.composer/vendor/bin/phpunit /usr/local/bin/phpunit \
     && chmod a+x /usr/local/bin/run.sh
 
