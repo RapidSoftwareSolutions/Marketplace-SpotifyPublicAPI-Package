@@ -6,10 +6,6 @@ parameters:
         description: This package offers a variety of blocks by Spotify that do not require any authentication.
         image: https://developer.spotify.com/wp-content/uploads/2016/07/icon1@2x.png
         repo: https://github.com/RapidSoftwareSolutions/Marketplace-SpotifyPublicAPI-Package
-        accounts:
-          domain: spotify.com
-          credentials:
-            - public
         blocks:
         -
           name: searchAlbums
