@@ -1,7 +1,6 @@
 # SpotifyPublicAPI Package
 This package offers a variety of blocks by Spotify that do not require any authentication.
 * Domain: spotify.com
-* Credentials: public
 
 ## How to get credentials: 
 This is public api. No credentials need.
