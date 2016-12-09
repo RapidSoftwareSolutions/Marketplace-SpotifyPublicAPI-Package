@@ -137,10 +137,10 @@ abstract class SpotifyAbstract
     {
         if (isset($this->result['error'])) {
 
-            $this->response = ['callback' => $schema['callback_message']['error'], 'contextWrites' => ['to' => json_encode($this->result)]];
+            $this->response = ['callback' => $schema['callback_message']['error'], 'contextWrites' => ['to' => $this->result]];
         } else {
 
-            $this->response = ['callback' => $schema['callback_message']['success'], 'contextWrites' => ['to' => json_encode($this->result)]];
+            $this->response = ['callback' => $schema['callback_message']['success'], 'contextWrites' => ['to' => $this->result]];
         }
     }
 
