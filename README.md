@@ -1,3 +1,6 @@
+[![](https://scdn.rapidapi.com/RapidAPI_banner.png)](https://rapidapi.com/package/SpotifyPublicAPI/functions?utm_source=RapidAPIGitHub_SpotifyPublicFunctions&utm_medium=button&utm_content=RapidAPI_GitHub)
+
+
 # SpotifyPublicAPI Package
 This package offers a variety of blocks by Spotify that do not require any authentication.
 * Domain: spotify.com
