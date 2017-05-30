@@ -32,7 +32,7 @@ parameters:
             -
               name: accessToken
               type: credentials
-              info: "The search query's keywords (and optional field filters and operators)."
+              info: "accessToken obtained from Spotify"
               required: true
             -
               name: query

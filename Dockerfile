@@ -16,7 +16,7 @@ RUN echo "http://dl-4.alpinelinux.org/alpine/v3.5/main/" >> /etc/apk/repositorie
         git \
         nginx \
         php7 \
-#        php7-amqp \
+        php7-amqp \
         php7-curl \
         php7-ctype \
         php7-dom \
@@ -39,11 +39,16 @@ RUN echo "http://dl-4.alpinelinux.org/alpine/v3.5/main/" >> /etc/apk/repositorie
     && ln -s /usr/bin/php7 /usr/bin/php \
     && ln -s /usr/sbin/php-fpm7 /usr/bin/php-fpm \
     && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer \
+    && mkdir -p /app/cache/prod \
+    && mkdir -p /app/logs \
     && ln -s /root/.composer/vendor/bin/phpunit /usr/local/bin/phpunit \
     && chmod a+x /usr/local/bin/run.sh
 
 # Install app dependencies
 RUN composer install --no-interaction
+
+RUN chmod 777 /app/cache/prod
+RUN chmod 777 /app/logs
 
 COPY /conf/php.ini /etc/php7/conf.d/50-setting.ini
 COPY /conf/www.conf /etc/php7/php-fpm.d/www.conf
