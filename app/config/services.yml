@@ -5,27 +5,46 @@ parameters:
         tagline: Spotify Public API Wrapper
         description: This package offers a variety of blocks by Spotify that do not require any authentication.
         image: https://developer.spotify.com/wp-content/uploads/2016/07/icon1@2x.png
+        keywords:
+          - API
+          - album
+          - albums
+          - artist 
+          - artists 
+          - band 
+          - music 
+          - musician 
+          - playlist 
+          - playlists
+          - song
+          - songs
+          - tracks
         repo: https://github.com/RapidSoftwareSolutions/Marketplace-SpotifyPublicAPI-Package
         blocks:
         -
           name: searchAlbums
+          description: Search an album
           args:
             -
               name: query
               type: String
               info: "The search query's keywords (and optional field filters and operators)."
+              required: true
             -
               name: market
               type: String
-              info: "Optimal: An ISO 3166-1 alpha-2 country code or the string from_token."
+              info: "An ISO 3166-1 alpha-2 country code or the string from_token."
+              required: false
             -
               name: limit
               type: String
-              info: "Optimal: The maximum number of results to return. Default: 20. Minimum: 1. Maximum: 50."
+              info: "The maximum number of results to return. Default: 20. Minimum: 1. Maximum: 50."
+              required: false
             -
               name: offset
               type: String
-              info: "Optimal: The index of the first result to return. Default: 0 (i.e., the first result). Maximum offset: 100.000. Use with limit to get the next page of search results. "
+              info: "The index of the first result to return. Default: 0 (i.e., the first result). Maximum offset: 100.000. Use with limit to get the next page of search results. "
+              required: false
           callbacks:
             -
               name: error
@@ -35,24 +54,29 @@ parameters:
               info: "success"
         -
           name: searchArtists
+          description: Search an artist
           args:
           args:
             -
               name: query
               type: String
               info: "The search query's keywords (and optional field filters and operators)."
+              required: true
             -
               name: market
               type: String
-              info: "Optimal: An ISO 3166-1 alpha-2 country code or the string from_token."
+              info: "An ISO 3166-1 alpha-2 country code or the string from_token."
+              required: false
             -
               name: limit
               type: String
-              info: "Optimal: The maximum number of results to return. Default: 20. Minimum: 1. Maximum: 50."
+              info: "The maximum number of results to return. Default: 20. Minimum: 1. Maximum: 50."
+              required: false
             -
               name: offset
               type: String
-              info: "Optimal: The index of the first result to return. Default: 0 (i.e., the first result). Maximum offset: 100.000. Use with limit to get the next page of search results. "
+              info: "The index of the first result to return. Default: 0 (i.e., the first result). Maximum offset: 100.000. Use with limit to get the next page of search results. "
+              required: false
           callbacks:
             -
               name: error
@@ -62,23 +86,28 @@ parameters:
               info: "success"
         -
           name: searchPlaylists
+          description: Search a playlist
           args:
             -
               name: query
               type: String
               info: "The search query's keywords (and optional field filters and operators)."
+              required: true
             -
               name: market
               type: String
-              info: "Optimal: An ISO 3166-1 alpha-2 country code or the string from_token."
+              info: "An ISO 3166-1 alpha-2 country code or the string from_token."
+              required: false
             -
               name: limit
               type: String
-              info: "Optimal: The maximum number of results to return. Default: 20. Minimum: 1. Maximum: 50."
+              info: "The maximum number of results to return. Default: 20. Minimum: 1. Maximum: 50."
+              required: false
             -
               name: offset
               type: String
-              info: "Optimal: The index of the first result to return. Default: 0 (i.e., the first result). Maximum offset: 100.000. Use with limit to get the next page of search results. "
+              info: "The index of the first result to return. Default: 0 (i.e., the first result). Maximum offset: 100.000. Use with limit to get the next page of search results. "
+              required: false
           callbacks:
             -
               name: error
@@ -88,23 +117,28 @@ parameters:
               info: "success"
         -
           name: searchTracks
+          description: Search tracks
           args:
             -
               name: query
               type: String
               info: "The search query's keywords (and optional field filters and operators)."
+              required: true
             -
               name: market
               type: String
-              info: "Optimal: An ISO 3166-1 alpha-2 country code or the string from_token."
+              info: "An ISO 3166-1 alpha-2 country code or the string from_token."
+              required: false
             -
               name: limit
               type: String
-              info: "Optimal: The maximum number of results to return. Default: 20. Minimum: 1. Maximum: 50."
+              info: "The maximum number of results to return. Default: 20. Minimum: 1. Maximum: 50."
+              required: false
             -
               name: offset
               type: String
-              info: "Optimal: The index of the first result to return. Default: 0 (i.e., the first result). Maximum offset: 100.000. Use with limit to get the next page of search results. "
+              info: "The index of the first result to return. Default: 0 (i.e., the first result). Maximum offset: 100.000. Use with limit to get the next page of search results. "
+              required: false
           callbacks:
             -
               name: error
@@ -114,11 +148,13 @@ parameters:
               info: "success"
         -
           name: getAlbum
+          description: Get an album
           args:
             -
               name: id
               type: String
               info: "The Spotify ID for the album."
+              required: true
           callbacks:
             -
               name: error
@@ -128,11 +164,13 @@ parameters:
               info: "success"
         -
           name: getAlbumTracks
+          description: Get an album tracks
           args:
             -
               name: id
               type: String
               info: "The Spotify ID for the track."
+              required: true
           callbacks:
             -
               name: error
@@ -142,11 +180,13 @@ parameters:
               info: "success"
         -
           name: getArtist
+          description: Get an artist
           args:
             -
               name: id
               type: String
               info: "The Spotify ID for the artist."
+              required: true
           callbacks:
             -
               name: error
@@ -156,27 +196,33 @@ parameters:
               info: "success"
         -
           name: getArtistAlbums
+          description: Get artist albums
           args:
             -
               name: id
               type: String
               info: "The Spotify ID for the artist."
+              required: true
             -
               name: album_type
               type: String
-              info: "Optional. A comma-separated list of keywords that will be used to filter the response. If not supplied, all album types will be returned. Valid values are:album, single, appears_on, compilation."
+              info: "A comma-separated list of keywords that will be used to filter the response. If not supplied, all album types will be returned. Valid values are:album, single, appears_on, compilation."
+              required: false
             -
               name: market
               type: String
-              info: "Optional. An ISO 3166-1 alpha-2 country code. Supply this parameter to limit the response to one particular geographical market."
+              info: "An ISO 3166-1 alpha-2 country code. Supply this parameter to limit the response to one particular geographical market."
+              required: false
             -
               name: limit
               type: String
-              info: "Optional. The number of album objects to return. Default: 20. Minimum: 1. Maximum: 50."
+              info: "The number of album objects to return. Default: 20. Minimum: 1. Maximum: 50."
+              required: false
             -
               name: offset
               type: String
-              info: "Optional. The index of the first album to return. Default: 0 (i.e., the first album). Use with limit to get the next set of albums. "
+              info: "The index of the first album to return. Default: 0 (i.e., the first album). Use with limit to get the next set of albums. "
+              required: false
           callbacks:
             -
               name: error
@@ -186,15 +232,18 @@ parameters:
               info: "success"
         -
           name: getArtistTopTracks
+          description: Get artists top tracks
           args:
             -
               name: id
               type: String
               info: "The Spotify ID for the artist."
+              required: true
             -
               name: country
               type: String
               info: "The country: an ISO 3166-1 alpha-2 country code."
+              required: true
           callbacks:
             -
               name: error
@@ -204,11 +253,13 @@ parameters:
               info: "success"
         -
           name: getArtistRelatedArtists
+          description: Get artist related artists
           args:
             -
               name: id
               type: String
               info: "The Spotify ID for the artist."
+              required: true
           callbacks:
             -
               name: error
@@ -218,11 +269,13 @@ parameters:
               info: "success"
         -
           name: getTrack
+          description: Get track
           args:
             -
               name: id
               type: String
               info: "The Spotify ID for the track."
+              required: true
           callbacks:
             -
               name: error
@@ -232,11 +285,13 @@ parameters:
               info: "success"
         -
           name: getUserProfile
+          description: Get user profile
           args:
             -
               name: id
               type: String
               info: "The Spotify ID for the user profile."
+              required: true
           callbacks:
             -
               name: error
