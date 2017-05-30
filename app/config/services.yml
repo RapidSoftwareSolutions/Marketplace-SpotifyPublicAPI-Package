@@ -66,6 +66,11 @@ parameters:
           description: Search an artist
           args:
             -
+              name: accessToken
+              type: credentials
+              info: "accessToken obtained from Spotify"
+              required: true
+            -
               name: query
               type: String
               info: "The search query's keywords (and optional field filters and operators)."
@@ -96,6 +101,11 @@ parameters:
           name: searchPlaylists
           description: Search a playlist
           args:
+            -
+              name: accessToken
+              type: credentials
+              info: "accessToken obtained from Spotify"
+              required: true
             -
               name: query
               type: String
@@ -128,6 +138,11 @@ parameters:
           description: Search tracks
           args:
             -
+              name: accessToken
+              type: credentials
+              info: "accessToken obtained from Spotify"
+              required: true
+            -
               name: query
               type: String
               info: "The search query's keywords (and optional field filters and operators)."
@@ -159,6 +174,11 @@ parameters:
           description: Get an album
           args:
             -
+              name: accessToken
+              type: credentials
+              info: "accessToken obtained from Spotify"
+              required: true
+            -
               name: id
               type: String
               info: "The Spotify ID for the album."
@@ -174,6 +194,11 @@ parameters:
           name: getAlbumTracks
           description: Get an album tracks
           args:
+            -
+              name: accessToken
+              type: credentials
+              info: "accessToken obtained from Spotify"
+              required: true
             -
               name: id
               type: String
@@ -191,6 +216,11 @@ parameters:
           description: Get an artist
           args:
             -
+              name: accessToken
+              type: credentials
+              info: "accessToken obtained from Spotify"
+              required: true
+            -
               name: id
               type: String
               info: "The Spotify ID for the artist."
@@ -206,6 +236,11 @@ parameters:
           name: getArtistAlbums
           description: Get artist albums
           args:
+            -
+              name: accessToken
+              type: credentials
+              info: "accessToken obtained from Spotify"
+              required: true
             -
               name: id
               type: String
@@ -243,6 +278,11 @@ parameters:
           description: Get artists top tracks
           args:
             -
+              name: accessToken
+              type: credentials
+              info: "accessToken obtained from Spotify"
+              required: true
+            -
               name: id
               type: String
               info: "The Spotify ID for the artist."
@@ -264,6 +304,11 @@ parameters:
           description: Get artist related artists
           args:
             -
+              name: accessToken
+              type: credentials
+              info: "accessToken obtained from Spotify"
+              required: true
+            -
               name: id
               type: String
               info: "The Spotify ID for the artist."
@@ -280,6 +325,11 @@ parameters:
           description: Get track
           args:
             -
+              name: accessToken
+              type: credentials
+              info: "accessToken obtained from Spotify"
+              required: true
+            -
               name: id
               type: String
               info: "The Spotify ID for the track."
@@ -295,6 +345,11 @@ parameters:
           name: getUserProfile
           description: Get user profile
           args:
+            -
+              name: accessToken
+              type: credentials
+              info: "accessToken obtained from Spotify"
+              required: true
             -
               name: id
               type: String
@@ -321,7 +376,8 @@ parameters:
       limit_field_stop_pagination: true
       pagination_next_url_key: "next"
       object: false
-      object_headers: false
+      object_headers:
+        "{accessToken}": "accessToken"
       callback_message:
         error: "error"
         success: "success"
@@ -333,11 +389,16 @@ parameters:
     app_bundle.search_artists:
       url: "%app_bundle.spotifyUrl%"
       uri: "search?type=artist&"
+      headers:
+        Content-Type: "application/json"
+        Authorization: "Bearer {accessToken}"
       method: "get"
       args_in_body: false
       limit_field_stop_pagination: true
       pagination_next_url_key: "next"
       object: false
+      object_headers:
+        "{accessToken}": "accessToken"
       callback_message:
         error: "error"
         success: "success"
@@ -349,11 +410,16 @@ parameters:
     app_bundle.search_playlists:
       url: "%app_bundle.spotifyUrl%"
       uri: "search?type=playlist&"
+      headers:
+        Content-Type: "application/json"
+        Authorization: "Bearer {accessToken}"
       method: "get"
       args_in_body: false
       limit_field_stop_pagination: true
       pagination_next_url_key: "next"
       object: false
+      object_headers:
+        "{accessToken}": "accessToken"
       callback_message:
         error: "error"
         success: "success"
@@ -365,11 +431,16 @@ parameters:
     app_bundle.search_tracks:
       url: "%app_bundle.spotifyUrl%"
       uri: "search?type=track&"
+      headers:
+        Content-Type: "application/json"
+        Authorization: "Bearer {accessToken}"
       method: "get"
       args_in_body: false
       limit_field_stop_pagination: true
       pagination_next_url_key: "next"
       object: false
+      object_headers:
+        "{accessToken}": "accessToken"
       callback_message:
         error: "error"
         success: "success"
@@ -381,12 +452,17 @@ parameters:
     app_bundle.get_album:
       url: "%app_bundle.spotifyUrl%"
       uri: "albums/:id"
+      headers:
+        Content-Type: "application/json"
+        Authorization: "Bearer {accessToken}"
       method: "get"
       args_in_body: false
       limit_field_stop_pagination: false
       pagination_next_url_key: "next"
       object:
         ":id": "id"
+      object_headers:
+        "{accessToken}": "accessToken"
       callback_message:
         error: "error"
         success: "success"
@@ -394,12 +470,17 @@ parameters:
     app_bundle.get_album_tracks:
       url: "%app_bundle.spotifyUrl%"
       uri: "albums/:id/tracks"
+      headers:
+        Content-Type: "application/json"
+        Authorization: "Bearer {accessToken}"
       method: "get"
       args_in_body: false
       limit_field_stop_pagination: false
       pagination_next_url_key: "next"
       object:
         ":id": "id"
+      object_headers:
+        "{accessToken}": "accessToken"
       callback_message:
         error: "error"
         success: "success"
@@ -407,12 +488,17 @@ parameters:
     app_bundle.get_artist:
       url: "%app_bundle.spotifyUrl%"
       uri: "artists/:id"
+      headers:
+        Content-Type: "application/json"
+        Authorization: "Bearer {accessToken}"
       method: "get"
       args_in_body: false
       limit_field_stop_pagination: false
       pagination_next_url_key: "next"
       object:
         ":id": "id"
+      object_headers:
+        "{accessToken}": "accessToken"
       callback_message:
         error: "error"
         success: "success"
@@ -420,12 +506,17 @@ parameters:
     app_bundle.get_artist_albums:
       url: "%app_bundle.spotifyUrl%"
       uri: "artists/:id/albums?"
+      headers:
+        Content-Type: "application/json"
+        Authorization: "Bearer {accessToken}"
       method: "get"
       args_in_body: false
       limit_field_stop_pagination: true
       pagination_next_url_key: "next"
       object:
         ":id": "id"
+      object_headers:
+        "{accessToken}": "accessToken"
       callback_message:
         error: "error"
         success: "success"
@@ -437,12 +528,17 @@ parameters:
     app_bundle.get_artist_top_tracks:
       url: "%app_bundle.spotifyUrl%"
       uri: "artists/:id/top-tracks?"
+      headers:
+        Content-Type: "application/json"
+        Authorization: "Bearer {accessToken}"
       method: "get"
       args_in_body: false
       limit_field_stop_pagination: false
       pagination_next_url_key: "next"
       object:
         ":id": "id"
+      object_headers:
+        "{accessToken}": "accessToken"
       callback_message:
         error: "error"
         success: "success"
@@ -451,12 +547,17 @@ parameters:
     app_bundle.get_artist_related_artists:
       url: "%app_bundle.spotifyUrl%"
       uri: "artists/:id/related-artists"
+      headers:
+        Content-Type: "application/json"
+        Authorization: "Bearer {accessToken}"
       method: "get"
       args_in_body: false
       limit_field_stop_pagination: false
       pagination_next_url_key: "next"
       object:
         ":id": "id"
+      object_headers:
+        "{accessToken}": "accessToken"
       callback_message:
         error: "error"
         success: "success"
@@ -464,12 +565,17 @@ parameters:
     app_bundle.get_track:
       url: "%app_bundle.spotifyUrl%"
       uri: "tracks/:id"
+      headers:
+        Content-Type: "application/json"
+        Authorization: "Bearer {accessToken}"
       method: "get"
       args_in_body: false
       limit_field_stop_pagination: false
       pagination_next_url_key: "next"
       object:
         ":id": "id"
+      object_headers:
+        "{accessToken}": "accessToken"
       callback_message:
         error: "error"
         success: "success"
@@ -477,12 +583,17 @@ parameters:
     app_bundle.get_user_profile:
       url: "%app_bundle.spotifyUrl%"
       uri: "users/:id"
+      headers:
+        Content-Type: "application/json"
+        Authorization: "Bearer {accessToken}"
       method: "get"
       args_in_body: false
       limit_field_stop_pagination: false
       pagination_next_url_key: "next"
       object:
         ":id": "id"
+      object_headers:
+        "{accessToken}": "accessToken"
       callback_message:
         error: "error"
         success: "success"

@@ -117,16 +117,12 @@ abstract class SpotifyAbstract
      */
     public function sendRequest($schema, $query)
     {
-        $headers = array(
-            'Content-Type' => 'application/json',
-        );
-
         if ($schema['args_in_body']) {
 
-            $response = $this->httpClient->{$schema['method']}($query['url'], $headers, $query['body']);
+            $response = $this->httpClient->{$schema['method']}($query['url'], $query['headers'], $query['body']);
         } else {
 
-            $response = $this->httpClient->{$schema['method']}($query['url'], $headers);
+            $response = $this->httpClient->{$schema['method']}($query['url'], $query['headers']);
         }
 
         return $response->getContent();
