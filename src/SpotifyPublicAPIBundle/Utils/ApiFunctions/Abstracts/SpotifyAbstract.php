@@ -67,6 +67,8 @@ abstract class SpotifyAbstract
      */
     public function prepareQuery($schema)
     {
+        $headers = $this->queryBuilder->buildHeaders($schema, $this->parameters);
+
         $query = $this->queryBuilder->buildArgsParams($schema, $this->parameters);
 
         $uri = $this->queryBuilder->buildObjectsParams($schema, $this->parameters);
@@ -77,10 +79,10 @@ abstract class SpotifyAbstract
 
         if ($schema['args_in_body']) {
 
-            return ['url' => $schema['url'] . str_replace($patterns, $replacements, $schema['uri']), 'body' => $query];
+            return ['url' => $schema['url'] . str_replace($patterns, $replacements, $schema['uri']), 'body' => $query, 'headers' => $headers];
         } else {
 
-            return ['url' => $schema['url'] . str_replace($patterns, $replacements, $schema['uri']) . http_build_query($query, '', '&')];
+            return ['url' => $schema['url'] . str_replace($patterns, $replacements, $schema['uri']) . http_build_query($query, '', '&'), 'headers' => $headers];
         }
     }
 

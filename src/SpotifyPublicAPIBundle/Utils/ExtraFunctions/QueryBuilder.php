@@ -40,4 +40,25 @@ class QueryBuilder
 
         return $query;
     }
+
+    public function buildHeaders($schema, $parameters)
+    {
+        if ($schema['object_headers'] !== false) {
+            $headers = [];
+            $objects = [];
+            foreach ($schema['object_headers'] as $apiValue => $rapidApiValue) {
+                if (isset($parameters[$rapidApiValue]) && $parameters[$rapidApiValue] != '') {
+                    $objects[$apiValue] = $parameters[$rapidApiValue];
+                }
+            }
+            $patterns = array_keys($objects);
+            $replacements = array_values($objects);
+            foreach ($schema['headers'] as $name => $value) {
+                $headers[$name] = str_replace($patterns, $replacements, $value);
+            }
+            return $headers;
+        } else {
+            return $schema['headers'];
+        }
+    }
 }

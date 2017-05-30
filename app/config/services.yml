@@ -20,11 +20,20 @@ parameters:
           - songs
           - tracks
         repo: https://github.com/RapidSoftwareSolutions/Marketplace-SpotifyPublicAPI-Package
+        accounts:
+          domain: spotify.com
+          credentials:
+            - accessToken
         blocks:
         -
           name: searchAlbums
           description: Search an album
           args:
+            -
+              name: accessToken
+              type: credentials
+              info: "The search query's keywords (and optional field filters and operators)."
+              required: true
             -
               name: query
               type: String
@@ -55,7 +64,6 @@ parameters:
         -
           name: searchArtists
           description: Search an artist
-          args:
           args:
             -
               name: query
@@ -305,11 +313,15 @@ parameters:
     app_bundle.search_albums:
       url: "%app_bundle.spotifyUrl%"
       uri: "search?type=album&"
+      headers:
+        Content-Type: "application/json"
+        Authorization: "Bearer {accessToken}"
       method: "get"
       args_in_body: false
       limit_field_stop_pagination: true
       pagination_next_url_key: "next"
       object: false
+      object_headers: false
       callback_message:
         error: "error"
         success: "success"
