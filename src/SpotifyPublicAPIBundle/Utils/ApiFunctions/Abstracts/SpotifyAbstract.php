@@ -33,6 +33,11 @@ abstract class SpotifyAbstract
     protected $result;
 
     /**
+     * @var array
+     */
+    protected $headers;
+
+    /**
      * SpotifyAbstract constructor.
      *
      * @param $request
@@ -67,7 +72,7 @@ abstract class SpotifyAbstract
      */
     public function prepareQuery($schema)
     {
-        $headers = $this->queryBuilder->buildHeaders($schema, $this->parameters);
+        $this->headers = $this->queryBuilder->buildHeaders($schema, $this->parameters);
 
         $query = $this->queryBuilder->buildArgsParams($schema, $this->parameters);
 
@@ -79,10 +84,10 @@ abstract class SpotifyAbstract
 
         if ($schema['args_in_body']) {
 
-            return ['url' => $schema['url'] . str_replace($patterns, $replacements, $schema['uri']), 'body' => $query, 'headers' => $headers];
+            return ['url' => $schema['url'] . str_replace($patterns, $replacements, $schema['uri']), 'body' => $query, 'headers' => $this->headers];
         } else {
 
-            return ['url' => $schema['url'] . str_replace($patterns, $replacements, $schema['uri']) . http_build_query($query, '', '&'), 'headers' => $headers];
+            return ['url' => $schema['url'] . str_replace($patterns, $replacements, $schema['uri']) . http_build_query($query, '', '&'), 'headers' => $this->headers];
         }
     }
 
@@ -100,7 +105,7 @@ abstract class SpotifyAbstract
 
             while ($next) {
 
-                $pagination = json_decode($this->sendRequest($schema, ['url' => $next]), true);
+                $pagination = json_decode($this->sendRequest($schema, ['url' => $next, 'headers' => $this->headers]), true);
 
                 $next = $this->finder->recursiveFindValueInMultiArray($pagination, $schema['pagination_next_url_key']);
 
