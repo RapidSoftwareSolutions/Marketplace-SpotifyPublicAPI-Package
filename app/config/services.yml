@@ -248,8 +248,8 @@ parameters:
               required: true
             -
               name: album_type
-              type: String
-              info: "A comma-separated list of keywords that will be used to filter the response. If not supplied, all album types will be returned. Valid values are:album, single, appears_on, compilation."
+              type: List
+              info: "List of keywords that will be used to filter the response. If not supplied, all album types will be returned. Valid values are: album, single, appears_on, compilation."
               required: false
             -
               name: market
@@ -382,10 +382,18 @@ parameters:
         error: "error"
         success: "success"
       args:
-        q: "query"
-        market: "market"
-        limit: "limit"
-        offset: "offset"
+        q:
+          type: "string"
+          marketName: "query"
+        market:
+          type: "string"
+          marketName: "market"
+        limit:
+          type: "string"
+          marketName: "limit"
+        offset:
+          type: "string"
+          marketName: "offset"
     app_bundle.search_artists:
       url: "%app_bundle.spotifyUrl%"
       uri: "search?type=artist&"
@@ -403,10 +411,18 @@ parameters:
         error: "error"
         success: "success"
       args:
-        q: "query"
-        market: "market"
-        limit: "limit"
-        offset: "offset"
+        q:
+          type: "string"
+          marketName: "query"
+        market:
+          type: "string"
+          marketName: "market"
+        limit:
+          type: "string"
+          marketName: "limit"
+        offset:
+          type: "string"
+          marketName: "offset"
     app_bundle.search_playlists:
       url: "%app_bundle.spotifyUrl%"
       uri: "search?type=playlist&"
@@ -424,10 +440,18 @@ parameters:
         error: "error"
         success: "success"
       args:
-        q: "query"
-        market: "market"
-        limit: "limit"
-        offset: "offset"
+        q:
+          type: "string"
+          marketName: "query"
+        market:
+          type: "string"
+          marketName: "market"
+        limit:
+          type: "string"
+          marketName: "limit"
+        offset:
+          type: "string"
+          marketName: "offset"
     app_bundle.search_tracks:
       url: "%app_bundle.spotifyUrl%"
       uri: "search?type=track&"
@@ -445,10 +469,18 @@ parameters:
         error: "error"
         success: "success"
       args:
-        q: "query"
-        market: "market"
-        limit: "limit"
-        offset: "offset"
+        q:
+          type: "string"
+          marketName: "query"
+        market:
+          type: "string"
+          marketName: "market"
+        limit:
+          type: "string"
+          marketName: "limit"
+        offset:
+          type: "string"
+          marketName: "offset"
     app_bundle.get_album:
       url: "%app_bundle.spotifyUrl%"
       uri: "albums/:id"
@@ -521,10 +553,19 @@ parameters:
         error: "error"
         success: "success"
       args:
-        album_type: "album_type"
-        market: "market"
-        limit: "limit"
-        offset: "offset"
+        album_type:
+          type: "list"
+          separator: ","
+          marketName: "album_type"
+        market:
+          type: "string"
+          marketName: "market"
+        limit:
+          type: "string"
+          marketName: "limit"
+        offset:
+          type: "string"
+          marketName: "offset"
     app_bundle.get_artist_top_tracks:
       url: "%app_bundle.spotifyUrl%"
       uri: "artists/:id/top-tracks?"
@@ -543,7 +584,9 @@ parameters:
         error: "error"
         success: "success"
       args:
-        country: "country"
+        country:
+          type: "string"
+          marketName: "country"
     app_bundle.get_artist_related_artists:
       url: "%app_bundle.spotifyUrl%"
       uri: "artists/:id/related-artists"

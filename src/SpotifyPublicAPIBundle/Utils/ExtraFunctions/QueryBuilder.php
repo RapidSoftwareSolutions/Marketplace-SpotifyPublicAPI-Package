@@ -30,10 +30,8 @@ class QueryBuilder
 
         if ((array)$schema['args'] === $schema['args']) {
             foreach ($schema['args'] as $apiValue => $rapidApiValue) {
-                if (isset($parameters[$rapidApiValue]) && $parameters[$rapidApiValue] != '') {
-
-                    $query[$apiValue] = $parameters[$rapidApiValue];
-
+                if (isset($parameters[$rapidApiValue['marketName']]) && $parameters[$rapidApiValue['marketName']] != '') {
+                    $query[$apiValue] = call_user_func_array(array($this, $rapidApiValue['type']), [$parameters[$rapidApiValue['marketName']], $rapidApiValue]);
                 }
             }
         }
@@ -60,5 +58,15 @@ class QueryBuilder
         } else {
             return $schema['headers'];
         }
+    }
+
+    public function list($list, $conf)
+    {
+        return (is_array($list) == false) ? $list : implode($conf['separator'], $list);
+    }
+
+    public function string($string, $conf)
+    {
+        return $string;
     }
 }
