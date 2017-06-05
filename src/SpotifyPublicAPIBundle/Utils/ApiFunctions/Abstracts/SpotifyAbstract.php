@@ -98,7 +98,7 @@ abstract class SpotifyAbstract
     {
         if (
             $schema['limit_field_stop_pagination'] == false
-            || ($schema['limit_field_stop_pagination'] == true && $this->parameters[$schema['args']['limit']] == '')
+            || ($schema['limit_field_stop_pagination'] == true && $this->parameters[$schema['args']['limit']['marketName']] == '')
         ) {
 
             $next = $this->finder->recursiveFindValueInMultiArray($this->result, $schema['pagination_next_url_key']);
