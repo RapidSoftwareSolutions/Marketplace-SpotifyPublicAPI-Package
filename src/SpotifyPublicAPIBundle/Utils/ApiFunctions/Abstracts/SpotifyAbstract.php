@@ -84,10 +84,10 @@ abstract class SpotifyAbstract
 
         if ($schema['args_in_body']) {
 
-            return ['url' => $schema['url'] . str_replace($patterns, $replacements, $schema['uri']), 'body' => $query, 'headers' => $this->headers];
+            return ['url' => $schema['url'] . str_replace($patterns, $replacements, $schema['uri']), 'body' => $query];
         } else {
 
-            return ['url' => $schema['url'] . str_replace($patterns, $replacements, $schema['uri']) . http_build_query($query, '', '&'), 'headers' => $this->headers];
+            return ['url' => $schema['url'] . str_replace($patterns, $replacements, $schema['uri']) . http_build_query($query, '', '&')];
         }
     }
 
@@ -105,7 +105,7 @@ abstract class SpotifyAbstract
 
             while ($next) {
 
-                $pagination = json_decode($this->sendRequest($schema, ['url' => $next, 'headers' => $this->headers]), true);
+                $pagination = json_decode($this->sendRequest($schema, ['url' => $next]), true);
 
                 $next = $this->finder->recursiveFindValueInMultiArray($pagination, $schema['pagination_next_url_key']);
 
@@ -124,10 +124,10 @@ abstract class SpotifyAbstract
     {
         if ($schema['args_in_body']) {
 
-            $response = $this->httpClient->{$schema['method']}($query['url'], $query['headers'], $query['body']);
+            $response = $this->httpClient->{$schema['method']}($query['url'], $this->headers, $query['body']);
         } else {
 
-            $response = $this->httpClient->{$schema['method']}($query['url'], $query['headers']);
+            $response = $this->httpClient->{$schema['method']}($query['url'], $this->headers);
         }
 
         return $response->getContent();
